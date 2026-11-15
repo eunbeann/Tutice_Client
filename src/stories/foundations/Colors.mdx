@@ -1,0 +1,22 @@
+import { ColorItem, ColorPalette, Meta } from "@storybook/blocks";
+
+import { colorGroups } from "./colorTokens";
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+`src/style/theme.ts`의 `theme.colors`를 그대로 읽어서 그려요. 코드에서는 `theme.colors.green5`처럼 써요.
+
+```tsx
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.green5};
+  color: ${({ theme }) => theme.colors.white};
+`;
+```
+
+<ColorPalette>
+  {colorGroups.map((group) => (
+    <ColorItem key={group.title} title={group.title} subtitle={group.subtitle} colors={group.colors} />
+  ))}
+</ColorPalette>
